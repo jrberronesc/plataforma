@@ -1,5 +1,7 @@
 import React, { createRef } from 'react'
 import { NavLink } from 'react-router-dom'
+import PrivateMenu from '../Molecules/PrivateMenu'
+import PublicMenu from '../Molecules/PublicMenu'
 
 // createRef Referencias en React son la forma de como podemos seleccionar cierto elemento dentro del dom virtual,
 // Es como hacer un document.getElementById pero dentro de React
@@ -14,10 +16,10 @@ const menu = createRef( )
 // En otras palabras cuando el usuarrio valla a clikear el menu amburguesa va a preguntar si tiene show, si tiene le quita y si no le pone
 const toggleMenu = () => menu.current.classList.toggle('show')
 
-const removeToken = () => {
-  localStorage.setItem( 'token', '' )
-  window.location = '/login'
-}
+// const removeToken = () => {
+//   localStorage.setItem( 'token', '' )
+//   window.location = '/login'
+// }
 
 const Header = () => (
   <header className='main-header'>
@@ -42,13 +44,21 @@ const Header = () => (
       <div className='s-cols-1 lg-cols-3 s-cross-center s-main-end'>
                                     {/* ->1001 */}
         <nav className="main-menu" ref={ menu }>
-          <ul>
+          {
+            localStorage.getItem( 'token' ) 
+            ? 
+              <PrivateMenu /> 
+            : 
+              <PublicMenu /> 
+          }                  
+          
+          {/* <ul>
             <li><NavLink exact to='/'>Home</NavLink></li>
             <li><NavLink to='/especialidades'>Especialidades</NavLink></li>
             <li><NavLink to='/cursos'>Cursos</NavLink></li>
             <li><NavLink to='/profesores'>Profesores</NavLink></li>
             <li><span onClick={ () => removeToken() }>Cerrar Session</span></li>
-          </ul>
+          </ul> */}
         </nav>
         {/* main-menu-toggle nos va a dibujar la amburguesa de 3 puntos
             to-l con esto le dicimos que la ambrguesa solo aparezaca en ventanas grandes*/}

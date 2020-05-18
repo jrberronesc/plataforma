@@ -7,9 +7,9 @@ import Public from './Routes/Public'
 import Home from './Pages/Home'
 import Specialities from './Pages/Specialities'
 import Speciality from './Pages/Speciality'
-import Teachers from './Pages/Teachers'
-import Course from './Pages/Course'
 import Courses from './Pages/Courses'
+import Course from './Pages/Course'
+import Teachers from './Pages/Teachers'
 import Fragment from './Pages/Fragment'
 
 import Login from './Pages/Login'
@@ -17,6 +17,7 @@ import Register from './Pages/Register'
 
 import Page404 from './Pages/Page404'
 import Header from './Organinsms/Header'
+
 
 const App = () => (
   <Router>

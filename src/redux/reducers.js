@@ -57,10 +57,14 @@ export const courseReducer = ( state = {}, action ) => {
 export const teacherReducer = ( state = {}, action ) => {
 
   if ( action.type === GET_ALL_TEACHERS ) {
-    return {
+
+    // return action.teachers // mas compacto
+
+    return { /* PODRIA SE ASI TAMBIEN */
       ...state,
       teachers : action.teachers
     }
+
   } 
 
   return state

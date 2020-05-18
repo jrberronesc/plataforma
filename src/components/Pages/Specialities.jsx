@@ -1,11 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Banner from '../Organinsms/Banner'
+import store from '../../redux/store'
+import { getAllSpecialities } from '../../redux/actionCreators'
+import { connect } from 'react-redux'
+import Card from '../Organinsms/Card'
 
-const Specialities = () => {
+const Specialities = ( { specialities } ) => {
+
+  useEffect( () => {
+    store.dispatch( getAllSpecialities() )
+  } , [] )
+  
   return (
-    <div className='ed-grid'>
-        <h1>Specialities</h1>
-    </div>
+    <>
+      <Banner 
+        color = 'accent-color-alt'
+        image = { { 
+          src : '#',
+          alt : "Banner Especialidades"
+        } }
+        title = "Especialidades"
+        subtitle = "Domina una tecnología con las rutas de aprendizaje que te ofrecemos"
+      />
+      {
+        specialities && 
+        <main className="ed-grid m-grid-3">
+          {
+            specialities.map( item => (
+              <Card 
+                key = { item.id }
+                cardId = { item.id }
+                path = { 'especialidades' }
+                picture = { item.picture }
+                name = { item.name }
+              />
+            ) )
+          }
+        </main>
+      }
+    </>
   )
 }
 
-export default Specialities
+const mapStateToProps = state => ( {
+  specialities : state.specialityReducer.specialities
+} )
+
+export default connect( mapStateToProps, {} )( Specialities )

@@ -18,7 +18,7 @@ export const getAllPosts = () => dispatch => {
     resp => {
       return dispatch( {
         type  : GET_ALL_POSTS,
-        posts : resp.data()
+        posts : resp.data
       } )
     }
   )
@@ -29,7 +29,7 @@ export const getAllSpecialities = () => dispatch => {
     resp => {
       return dispatch( {
         type  : GET_ALL_SPECIALITIES,
-        specialities : resp.data()
+        specialities : resp.data
       } )
     }
   )
@@ -40,7 +40,7 @@ export const getAllCourses = () => dispatch => {
     resp => {
       return dispatch( {
         type  : GET_ALL_COURSES,
-        courses : resp.data()
+        courses : resp.data
       } )
     }
   )
@@ -51,7 +51,7 @@ export const getAllTeachers = () => dispatch => {
     resp => {
       return dispatch( {
         type  : GET_ALL_TEACHERS,
-        teachers : resp.data()
+        teachers : resp.data
       } )
     }
   )
@@ -62,40 +62,40 @@ export const getPost = ( id ) => dispatch => {
     resp => {
       return dispatch( {
         type  : GET_POST,
-        post : resp.data()
+        post : resp.data
       } )
     }
   )
 }
 
-export const getSpecialitie = ( id ) => dispatch => {
-  Axios.get( `${ API_URL }/especialidades/${ id }` ).then(
+export const getSpeciality = id => dispatch => {
+  Axios.get( `${ API_URL }/especialidad/${ id }` ).then(
     resp => {
       return dispatch( {
         type  : GET_SPECIALITY,
-        speciality : resp.data()
+        speciality : resp.data
       } )
     }
   )
 }
 
-export const getCourse = ( id ) => dispatch => {
-  Axios.get( `${ API_URL }/cursos/${ id }` ).then(
+export const getCourse = id => dispatch => {
+  Axios.get( `${ API_URL }/curso/${ id }` ).then(
     resp => {
       return dispatch( {
         type  : GET_COURSE,
-        course : resp.data()
+        course : resp.data
       } )
     }
   )
 }
 
-export const getclass = ( id ) => dispatch => {
+export const getclass = id => dispatch => {
   Axios.get( `${ API_URL }/clases/${ id }` ).then(
     resp => {
       return dispatch( {
         type  : GET_FRAGMENT,
-        fragment : resp.data()
+        fragment : resp.data
       } )
     }
   )

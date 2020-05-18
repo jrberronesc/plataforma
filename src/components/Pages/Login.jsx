@@ -2,7 +2,6 @@ import React from 'react'
 import Axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 
-const c = console.log
 const authentication = e => {
   
   e.preventDefault()
@@ -13,14 +12,14 @@ const authentication = e => {
     "password" : form.password.value
   }
 
-  Axios.post( `https://api-edteam.alejogs4.now.sh/login`, data)
+  Axios.post( `https://api-edteam.alejogs4.now.sh/login`, data )
     .then( resp => {
       localStorage.setItem( 'token', resp.data.token )
       window.location = "/"
       // const salir = () => <Redirect to='/'/>
       // salir()
      } ) 
-    .catch( error => c( error ) )
+    .catch( error => alert( 'Error al iniciar sessiòn' ) )
 }
 
 const Login = () => {

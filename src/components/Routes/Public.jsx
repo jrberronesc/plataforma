@@ -6,11 +6,13 @@ const Public = ( { component: Component, ...rest } ) => {
 
   const userLogged = localStorage.getItem( 'token' )
 
-  if ( userLogged ) return <Redirect to='/'/>
+  if ( userLogged ) {
+    return <Redirect to='/'/>
+  }
 
   return (
-                     // render es lo mismo como component
-    <Route { ...rest } render={ Component } /> 
+                     // render no sirve
+    <Route { ...rest } component={ Component } /> 
   )
 }
 
