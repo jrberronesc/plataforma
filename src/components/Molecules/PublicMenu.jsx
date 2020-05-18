@@ -6,7 +6,7 @@ const removeToken = () => {
   window.location = '/login'
 }
 
-const PrivateMenu = () => {
+const PublicMenu = () => {
   return (
     <ul>
       <li><NavLink exact to='/login'>Login</NavLink></li>
@@ -15,4 +15,4 @@ const PrivateMenu = () => {
   )
 }
 
-export default PrivateMenu
+export default PublicMenu
